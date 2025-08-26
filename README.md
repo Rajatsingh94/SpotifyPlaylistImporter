@@ -29,46 +29,49 @@ Python script to Create and Import Playlist in Spotify from Apple Music
    cd SpotifyPlaylistImporter
 
 2. Create and activate a virtual environment (recommended):
-	python3 -m venv .venv
-        source .venv/bin/activate
+	```bash	
+ 	python3 -m venv .venv
+ 	source .venv/bin/activate
 
 3. Install dependencies:
-	pip install -r requirements.txt
+	```bash
+ 	pip install -r requirements.txt
 
 4. Export your Apple Music playlist:
- 
+    ```bash
     Open Apple Music → File → Library → Export Playlist… → Save as MyPlaylist.xml
 
 5. Set your Spotify credentials as environment variables:
+   ```bash
    export SPOTIPY_CLIENT_ID="your_client_id"
    export SPOTIPY_CLIENT_SECRET="your_client_secret"
    export SPOTIPY_REDIRECT_URI="http://localhost:8888/callback"
 
+___
 
 ## Usage
 
-Create a new playlist on Spotify:
+1. Create a new playlist on Spotify:
+   ```bash
+	python3 apple_xml_to_spotify.py \
+	--xml "MyPlaylist.xml" \
+	--spotify-name "My Imported Playlist"
 
-python3 apple_xml_to_spotify.py \
-  --xml "MyPlaylist.xml" \
-  --spotify-name "My Imported Playlist"
-
-
-Add songs to an existing playlist:
-
-python3 apple_xml_to_spotify.py \
-  --xml "MyPlaylist.xml" \
-  --use-existing "My Spotify Playlist"
-
-
-Replace all songs in an existing playlist:
-
-python3 apple_xml_to_spotify.py \
-  --xml "MyPlaylist.xml" \
-  --use-existing "My Spotify Playlist" \
-  --mode replace
+2. Add songs to an existing playlist:
+	```bash
+	python3 apple_xml_to_spotify.py \
+  	--xml "MyPlaylist.xml" \
+  	--use-existing "My Spotify Playlist"
 
 
+3. Replace all songs in an existing playlist:
+	```bash
+	python3 apple_xml_to_spotify.py \
+  	--xml "MyPlaylist.xml" \
+  	--use-existing "My Spotify Playlist" \
+  	--mode replace
+
+___
 
 ## License:
 GPL-3.0
